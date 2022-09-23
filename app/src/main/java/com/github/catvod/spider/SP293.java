@@ -27,8 +27,8 @@ public class SP293 extends Spider {
     public static String zcC = "MIICdQIBADANBgkqhkiG9w0BAQEFAASCAl8wggJbAgEAAoGBAM6T6V5lfKE5miEMR88NalNn6CvzQC+PR8bH0ipUege8D/tFgjh22J3Yh1Ibgl1zsoifz3eF8/IKWZ6Hui7iUeOvbZteCuz7IBLFvnbPsNCP7SbLGPYRasVp3zqwt2NV72aZ/bI9pLczK2+b0R+KJXZ5V6fmVFx/QWWAo+NmkerVAgMBAAECgYA0yBQjm1iptRcNhJ7AZ5QYNX9b424t+LUFND8ds7HuUf3fXNY16R/VzOJed0rq58nhILwYtPAskrptSA6pNghn56dike27vANR6mTaYv+0o1FS/+lGQ1UohSAnzVw30L/tJzrobvvU4joXYjb95typAOiIvcOh8WAuwQRU7I5MAQJBAPh/Ji6mKbllYHAn+sHdE0cGm8QISZz+7dvZQQ8L7MzJG1eUYZXCXQ9Fiqrk3kLNwq6IW+eruBsH4HJa9LNyjwECQQDU0Lvy/EnnQNITryXQ20gxR+x4e9Nak+4GJbL6JFf9kqCUhei2ni8t/RO7wp+jrKUy2kdzGlRL+cv5dgxzv+/VAkBQua2DtgMT8TT0+mfhlpnultz/P9n6IG7Q3rDd3Hfexu4U82UIK43jqimz/omdlg5KeI2yovw5+8MUIywfJ3YBAkBanIVp8AGHdRH9T5XKV5NlaDpHEnHrHxE5jNOnrdHJJaU5l8p99twfuKGuUC+ogNnVzRqe55b8wl8W2Cx1HEQBAkAzWKejO1OWmdf+VwgUwShiRMvlNvzO7iPoyE6B4DrLM5dAMk8BN4Cyk1T/4pDfcj9FCydDk3fCmtPA0DWngU6A";
     private String n8 = "";
     private Map<String, Set<String>> ug = new HashMap();
-    private String v = "1.3.0";
-    private String in = "10000";
+    private String v = "";
+    private String in = "";
     private String I4 = "";
 
     private String l(String str) {
@@ -271,9 +271,9 @@ public class SP293 extends Spider {
                         break;
                     }
                     HashMap hashMap = new HashMap();
-                    hashMap.put("User-Agent", "abcdefg");
-                    hashMap.put("Host", "123.56.222.84:2025");
-                    JSONObject jSONObject2 = new JSONObject(OkHttpUtil.string(it.next() + str2 + "&appId=1000&version=1.3.0", hashMap));
+                    hashMap.put("User-Agent", this.I4);
+                    //hashMap.put("Host", "123.56.222.84:2025");
+                    JSONObject jSONObject2 = new JSONObject(OkHttpUtil.string(it.next() + str2 + "&appId="+this.in+"&version="+this.v, hashMap));
                     String optString = jSONObject2.optString("data");
 
                     Integer valueOf = Integer.valueOf(jSONObject2.optInt("encryption"));
