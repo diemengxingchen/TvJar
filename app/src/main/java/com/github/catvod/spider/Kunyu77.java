@@ -27,10 +27,18 @@ public class Kunyu77 extends Spider {
     private static final String siteUrl = "http://api.kunyu77.com";
 
     private String uAgent = "Dalvik/2.1.0 (Linux; U; Android " + Build.VERSION.RELEASE + "; " + Build.MODEL + " Build/" + Build.ID + ")";
-
+    private String uAgents = "okhttp/3.12.0";
     private HashMap<String, String> getHeaders(String url,String key) {
         HashMap<String, String> headers = new HashMap<>();
         headers.put("user-agent", uAgent);
+        String TK=Misc.MD5(url, Misc.CharsetUTF8);
+        headers.put("TK",TK);
+        headers.put("t",key);
+        return headers;
+    }
+    private HashMap<String, String> getHeadersZ(String url,String key) {
+        HashMap<String, String> headers = new HashMap<>();
+        headers.put("user-agent", uAgents);
         String TK=Misc.MD5(url, Misc.CharsetUTF8);
         headers.put("TK",TK);
         headers.put("t",key);
@@ -362,7 +370,7 @@ public class Kunyu77 extends Spider {
             String urls=url+"?pcode=010110002&version=2.0.4&devid=4ac3fe96a6133de96904b8d3c8cfe16d&package=com.sevenVideo.app.android&sys=android&sysver=7.1.2&brand=realme&model=RMX1931&sj="+t+"&searchName="+ key+"&pg=1";
 
             String urlm = "/api.php/provide/searchVideorealme4ac3fe96a6133de96904b8d3c8cfe16dRMX1931com.sevenVideo.app.android0101100021"+key+t+"android7.1.202.0.4"+t+"XSpeUFjJ";
-            String content = OkHttpUtil.string(urls, getHeaders(urlm,t));
+            String content = OkHttpUtil.string(urls, getHeadersZ(urlm,t));
             JSONObject dataObject = new JSONObject(decryptResponse(content));
             JSONArray jsonArray = dataObject.getJSONArray("data");
             JSONArray videos = new JSONArray();
