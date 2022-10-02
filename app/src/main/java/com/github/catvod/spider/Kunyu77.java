@@ -359,7 +359,7 @@ public class Kunyu77 extends Spider {
         try {
             String t = String.valueOf(System.currentTimeMillis()/ 1000);
             String url = siteUrl + "/api.php/provide/searchVideo";
-            String urls=url+"?pcode=010110002&version=2.0.4&devid=4ac3fe96a6133de96904b8d3c8cfe16d&package=com.sevenVideo.app.android&sys=android&sysver=7.1.2&brand=realme&model=RMX1931&sj="+t+"&searchName="+ URLEncoder.encode(key)+"&pg=1";
+            String urls=url+"?pcode=010110002&version=2.0.4&devid=4ac3fe96a6133de96904b8d3c8cfe16d&package=com.sevenVideo.app.android&sys=android&sysver=7.1.2&brand=realme&model=RMX1931&sj="+t+"&searchName="+ key+"&pg=1";
 
             String urlm = "/api.php/provide/searchVideorealme4ac3fe96a6133de96904b8d3c8cfe16dRMX1931com.sevenVideo.app.android0101100021"+key+t+"android7.1.202.0.4"+t+"XSpeUFjJ";
             String content = OkHttpUtil.string(urls, getHeaders(urlm,t));
