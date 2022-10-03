@@ -36,14 +36,7 @@ public class Kunyu77 extends Spider {
         headers.put("t",key);
         return headers;
     }
-    private HashMap<String, String> getHeadersZ(String url,String key) {
-        HashMap<String, String> headers = new HashMap<>();
-        headers.put("user-agent", uAgents);
-        String TK=Misc.MD5(url, Misc.CharsetUTF8);
-        headers.put("TK",TK);
-        headers.put("t",key);
-        return headers;
-    }
+    
 
     @Override
     public String homeContent(boolean filter) {
@@ -370,7 +363,12 @@ public class Kunyu77 extends Spider {
             String urls=url+"?pcode=010110002&version=2.0.4&devid=4ac3fe96a6133de96904b8d3c8cfe16d&package=com.sevenVideo.app.android&sys=android&sysver=7.1.2&brand=realme&model=RMX1931&sj="+t+"&searchName="+ key+"&pg=1";
 
             String urlm = "/api.php/provide/searchVideorealme4ac3fe96a6133de96904b8d3c8cfe16dRMX1931com.sevenVideo.app.android0101100021"+key+t+"android7.1.202.0.4"+t+"XSpeUFjJ";
-            String content = OkHttpUtil.string(urls, getHeadersZ(urlm,t));
+            HashMap hashMap = new HashMap();
+            hashMap.put("User-Agent", "okhttp/3.12.0");
+            String TK=Misc.MD5(urlm, Misc.CharsetUTF8);
+            hashMap.put("TK",TK);
+            hashMap.put("t",t);
+            String content = OkHttpUtil.string(urls, hashMap);
             JSONObject dataObject = new JSONObject(decryptResponse(content));
             JSONArray jsonArray = dataObject.getJSONArray("data");
             JSONArray videos = new JSONArray();
