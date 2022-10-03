@@ -269,7 +269,7 @@ public class SP293 extends Spider {
                         break;
                     }
                     HashMap hashMap = new HashMap();
-                    hashMap.put("User-Agent", this.I4);
+                    hashMap.put("User-Agent", "hahaha");
                     //hashMap.put("Host", "123.56.222.84:2025");
                     JSONObject jSONObject2 = new JSONObject(OkHttpUtil.string(it.next() + str2 + "&appId=1000&version=1.3.3&device_id=b08b45ee1124f23b", hashMap));
                     String optString = jSONObject2.optString("data");
