@@ -27,7 +27,6 @@ public class Kunyu77 extends Spider {
     private static final String siteUrl = "http://api.kunyu77.com";
 
     private String uAgent = "Dalvik/2.1.0 (Linux; U; Android " + Build.VERSION.RELEASE + "; " + Build.MODEL + " Build/" + Build.ID + ")";
-    private String uAgents = "okhttp/3.12.0";
     private HashMap<String, String> getHeaders(String url,String key) {
         HashMap<String, String> headers = new HashMap<>();
         headers.put("user-agent", uAgent);
