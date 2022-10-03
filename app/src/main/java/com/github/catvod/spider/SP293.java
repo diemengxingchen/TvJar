@@ -116,7 +116,7 @@ public class SP293 extends Spider {
                 String string = jSONObject4.getString("code");
                 linkedHashMap.put(string, jSONObject4.optString("url"));
                 JSONArray optJSONArray = jSONObject4.optJSONArray("parse_api");
-                String tl = jSONObject4.optString("user_agent");
+                this.In = jSONObject4.optString("user_agent");
                 if (!this.ug.containsKey(string)) {
                     HashSet hashSet = new HashSet();
                     for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
@@ -271,7 +271,7 @@ public class SP293 extends Spider {
                     HashMap hashMap = new HashMap();
                     hashMap.put("User-Agent", this.I4);
                     //hashMap.put("Host", "123.56.222.84:2025");
-                    JSONObject jSONObject2 = new JSONObject(OkHttpUtil.string(it.next() + str2 + "&appId="+this.in+"&version="+this.v, hashMap));
+                    JSONObject jSONObject2 = new JSONObject(OkHttpUtil.string(it.next() + str2 + "&appId=1000&version=1.3.3", hashMap));
                     String optString = jSONObject2.optString("data");
 
                     Integer valueOf = Integer.valueOf(jSONObject2.optInt("encryption"));
@@ -331,7 +331,7 @@ public class SP293 extends Spider {
             JSONObject jSONObject = new JSONObject(OkHttpUtil.string("https://agit.ai/fangzimo/TVBox/raw/branch/main/293.txt", (Map) null));
             this.in = jSONObject.optString("appId");
             this.v = jSONObject.optString("version");
-            this.I4 = jSONObject.optJSONObject("headers").optString("User-Agent");
+           
         } catch (Exception e) {
             SpiderDebug.log(e);
         }
