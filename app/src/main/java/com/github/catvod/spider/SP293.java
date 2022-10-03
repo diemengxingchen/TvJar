@@ -116,7 +116,7 @@ public class SP293 extends Spider {
                 String string = jSONObject4.getString("code");
                 linkedHashMap.put(string, jSONObject4.optString("url"));
                 JSONArray optJSONArray = jSONObject4.optJSONArray("parse_api");
-                this.In = jSONObject4.optString("user_agent");
+                this.I4 = jSONObject4.optString("user_agent");
                 if (!this.ug.containsKey(string)) {
                     HashSet hashSet = new HashSet();
                     for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
