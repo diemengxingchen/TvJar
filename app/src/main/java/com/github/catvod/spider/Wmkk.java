@@ -446,7 +446,7 @@ public class Wmkk extends Spider {
                                 result.put("header", headers.toString());
                                 result.put("parse", 0);
                                 result.put("playUrl", "");
-                                break;
+                                return result.toString();
                             }
 
 
