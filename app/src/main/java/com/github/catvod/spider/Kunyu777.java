@@ -306,33 +306,23 @@ public class Kunyu777 extends Spider {
 
     @Override
     public String playerContent(String flag, String id, List<String> vipFlags) {
-        JSONObject result = new JSONObject();
-        try {
-
-            String t = String.valueOf(System.currentTimeMillis()/ 1000);
-            String url = siteUrl + "/api.php/provide/parserDirectUrl";
-            String urls=url+"?url=" + id+"&retryNum=0&pcode=010110002&version=2.0.4&devid=4ac3fe96a6133de96904b8d3c8cfe16d&package=com.sevenVideo.app.android&sys=android&sysver=7.1.2&brand=realme&model=RMX1931&sj="+t;
-            String urlm = "/api.php/provide/parserUrlrealme4ac3fe96a6133de96904b8d3c8cfe16dRMX1931com.sevenVideo.app.android010110002"+id+"android7.1.2"+id+"2.0.4"+t+"XSpeUFjJ";
-            String content = OkHttpUtil.string(urls, getHeaders(urlm,t));
-            JSONObject dataObj = new JSONObject(decryptResponse(content)).getJSONObject("data");
-            //JSONObject playHeader = dataObj.optJSONObject("playHeader");
-            String jxUrl = dataObj.getString("url");
-
-            HashMap hashMap = new HashMap();
-            hashMap.put("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36 Edg/107.0.1418.52");
-            String contents = OkHttpUtil.string(decryptResponse(jxUrl),hashMap);
-            JSONObject tt = new JSONObject(OkHttpUtil.string(decryptResponse(jxUrl),hashMap));
-
-
-            result.put("parse", 0);
-            result.put("playUrl", "");
-            result.put("url", tt.getString("url"));
-            //return result.toString();
-        } catch (Throwable th) {
-
-        }
-
-
+        JSONObject result = new JSONObject();   
+        String t = String.valueOf(System.currentTimeMillis()/ 1000);
+        String url = siteUrl + "/api.php/provide/parserDirectUrl";
+        String urls=url+"?url=" + id+"&retryNum=0&pcode=010110002&version=2.0.4&devid=4ac3fe96a6133de96904b8d3c8cfe16d&package=com.sevenVideo.app.android&sys=android&sysver=7.1.2&brand=realme&model=RMX1931&sj="+t;
+        String urlm = "/api.php/provide/parserUrlrealme4ac3fe96a6133de96904b8d3c8cfe16dRMX1931com.sevenVideo.app.android010110002"+id+"android7.1.2"+id+"2.0.4"+t+"XSpeUFjJ";
+        String content = OkHttpUtil.string(urls, getHeaders(urlm,t));
+        JSONObject dataObj = new JSONObject(decryptResponse(content)).getJSONObject("data");
+        //JSONObject playHeader = dataObj.optJSONObject("playHeader");
+        String jxUrl = dataObj.getString("url");
+        HashMap hashMap = new HashMap();
+        hashMap.put("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36 Edg/107.0.1418.52");
+        String contents = OkHttpUtil.string(decryptResponse(jxUrl),hashMap);
+        JSONObject tt = new JSONObject(OkHttpUtil.string(decryptResponse(jxUrl),hashMap));
+        result.put("parse", 0);
+        result.put("playUrl", "");
+        result.put("url", tt.getString("url"));
+        //return result.toString();
         return result.toString();
     }
 
