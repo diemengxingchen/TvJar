@@ -306,6 +306,7 @@ public class Kunyu777 extends Spider {
 
     @Override
     public String playerContent(String flag, String id, List<String> vipFlags) {
+        JSONObject result = new JSONObject();
         try {
 
             String t = String.valueOf(System.currentTimeMillis()/ 1000);
@@ -319,21 +320,20 @@ public class Kunyu777 extends Spider {
 
             HashMap hashMap = new HashMap();
             hashMap.put("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36 Edg/107.0.1418.52");
-            String contents = OkHttpUtil.string(jxUrl,hashMap);
-            String tt = new JSONObject(contents).getString("url");
+            String contents = OkHttpUtil.string(decryptResponse(jxUrl),hashMap);
+            JSONObject tt = new JSONObject(OkHttpUtil.string(decryptResponse(jxUrl),hashMap));
 
-            JSONObject result = new JSONObject();
+
             result.put("parse", 0);
             result.put("playUrl", "");
-            result.put("url", tt);
-            return result.toString();
+            result.put("url", tt.getString("url"));
+            //return result.toString();
         } catch (Throwable th) {
 
         }
 
 
-
-        return "";
+        return result.toString();
     }
 
     @Override
